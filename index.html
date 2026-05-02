@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sophia Boleaga — Portfolio</title>
+<meta name="description" content="Sophia Boleaga Herrera — Digital Art Director &amp; Creative Producer · Milan · Net-a-Porter · Marangoni CUM LAUDE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#f6f1e8; --warm:#ede7da; --cream:#f9f6f0;
+  --ink:#1f1a17; --muted:#7c6f66; --line:rgba(31,26,23,0.11);
+  --card:rgba(255,255,255,0.58); --burg:#5c1a22; --burg2:#7a2430; --gold:#c8a84e;
+  --H:'Playfair Display',Georgia,serif; --BB:'Bebas Neue',sans-serif; --B:'DM Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:var(--B);font-weight:300;background:var(--paper);color:var(--ink);cursor:none;visibility:hidden}
+body.ready{visibility:visible}
+a{color:inherit;text-decoration:none}
+
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay}
+
+/* CURSOR */
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);border-radius:50%}
+.cur-dot{width:8px;height:8px;background:var(--ink)}
+.cur-ring{width:34px;height:34px;border:1.5px solid rgba(31,26,23,0.3);transition:width .18s,height .18s,border-color .18s}
+.cur-ring.on{width:52px;height:52px;border-color:rgba(31,26,23,0.65)}
+
+/* COVER */
+#cover{position:fixed;inset:0;z-index:800;display:flex;align-items:center;justify-content:center;background:var(--warm);transition:opacity .55s,visibility .55s}
+#cover.gone{opacity:0;visibility:hidden;pointer-events:none}
+.folder{position:relative;width:min(400px,88vw);cursor:none;filter:drop-shadow(0 12px 40px rgba(31,26,23,0.12))}
+.folder::before{content:'';position:absolute;top:-22px;left:0;width:120px;height:24px;background:var(--warm);border-radius:5px 5px 0 0;border:1px solid rgba(31,26,23,0.12);border-bottom:none}
+.folder-body{background:var(--warm);border:1px solid rgba(31,26,23,0.13);border-radius:0 8px 8px 8px;padding:52px 48px 44px;transform-origin:bottom center;transition:transform .75s cubic-bezier(0.4,0,0.2,1),opacity .4s ease .25s,box-shadow .4s;box-shadow:0 4px 28px rgba(31,26,23,0.09),0 1px 0 rgba(255,255,255,.7) inset}
+.folder.open .folder-body{transform:perspective(900px) rotateX(32deg) translateY(-36px) scale(1.03);opacity:0;box-shadow:0 44px 80px rgba(31,26,23,0.16)}
+.f-big{font-family:var(--BB);font-size:clamp(3rem,9vw,5.5rem);line-height:.86;text-transform:uppercase;color:var(--ink)}
+.f-ital{font-family:var(--H);font-style:italic;font-size:clamp(2rem,6vw,4rem);color:var(--burg);line-height:1;margin-top:4px}
+.f-foot{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end}
+.f-label{font-family:var(--B);font-size:.52rem;letter-spacing:.38em;text-transform:uppercase;color:var(--muted)}
+.f-sub{font-family:var(--H);font-style:italic;font-size:.92rem;color:var(--muted)}
+.f-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:var(--B);font-size:.5rem;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);opacity:.45;animation:breathe 2.6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.2}55%{opacity:.75}}
+
+/* TOPBAR */
+#topbar{position:sticky;top:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 28px;height:52px;background:rgba(246,241,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--H);font-style:italic;font-size:1.05rem;color:var(--burg)}
+.tabs{display:flex}
+.tab{position:relative;padding:0 18px;height:34px;margin-bottom:-1px;display:flex;align-items:center;gap:6px;font-family:var(--H);font-style:italic;font-size:.82rem;color:var(--muted);cursor:none;clip-path:polygon(7px 0%,calc(100% - 7px) 0%,100% 7px,100% 100%,0% 100%,0% 7px);background:var(--warm);border:1px solid var(--line);border-bottom:none;margin-right:-1px;transition:color .18s,background .18s;user-select:none}
+.tab:first-child{clip-path:polygon(0% 0%,calc(100% - 7px) 0%,100% 7px,100% 100%,0% 100%)}
+.tab:hover{background:var(--cream);color:var(--ink)}
+.tab.on{background:var(--paper);color:var(--burg);z-index:4;font-weight:700}
+.tab-n{font-family:var(--B);font-size:.44rem;letter-spacing:.26em;color:rgba(124,111,102,.5);font-style:normal}
+
+/* SCROLL REVEAL */
+.sr{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s cubic-bezier(.23,1,.32,1)}
+.sr.sl{transform:translateX(-20px)}.sr.sr2{transform:translateX(20px)}
+.sr.vis{opacity:1!important;transform:translate(0)!important}
+.sr.d1{transition-delay:.07s}.sr.d2{transition-delay:.14s}.sr.d3{transition-delay:.21s}.sr.d4{transition-delay:.28s}
+
+/* SECTIONS */
+section{padding:70px 28px;border-bottom:1px solid var(--line);background-image:repeating-linear-gradient(transparent 0px,transparent 33px,rgba(31,26,23,0.036) 33px,rgba(31,26,23,0.036) 34px)}
+section:nth-child(even){background-color:var(--warm)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px}
+.sec-head h2{font-family:var(--BB);font-size:clamp(2.8rem,5vw,5rem);text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
+.sec-head p{max-width:420px;color:var(--muted);line-height:1.6;font-size:.9rem}
+
+/* HERO / OVERVIEW */
+#overview{min-height:calc(100vh - 52px);display:grid;grid-template-columns:1.15fr 0.85fr;gap:32px;padding:48px 28px 40px;border-bottom:1px solid var(--line);background-image:linear-gradient(rgba(31,26,23,0.043) 1px,transparent 1px),linear-gradient(90deg,rgba(31,26,23,0.028) 1px,transparent 1px),linear-gradient(var(--paper),var(--paper));background-size:100% 34px,34px 100%,auto}
+.hero-left{display:flex;flex-direction:column;justify-content:center;gap:24px}
+.eyebrow{font-family:var(--B);font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.hero-left h1{font-family:var(--BB);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.88;text-transform:uppercase;letter-spacing:-.01em;max-width:8ch}
+.hero-left h1 em{font-family:var(--H);font-style:italic;font-weight:400;font-size:.54em;color:var(--burg);text-transform:none;display:block;margin-top:6px}
+.hero-sub{font-size:.92rem;color:#433b36;line-height:1.65;max-width:520px}
+.notes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:580px}
+.note{background:var(--card);border:1px solid var(--line);padding:13px 14px;border-radius:14px;box-shadow:0 6px 20px rgba(31,26,23,0.05);transition:transform .2s}
+.note:hover{transform:translateY(-2px)}
+.note small{display:block;font-family:var(--B);font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.note-v{font-family:var(--H);font-style:italic;font-size:.93rem;color:var(--ink);line-height:1.3}
+.hero-right{display:flex;align-items:center;justify-content:center}
+.portrait{width:min(100%,400px);aspect-ratio:4/5;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px;transform:rotate(-1.5deg);box-shadow:0 16px 50px rgba(31,26,23,0.08);transition:transform .3s;cursor:none;overflow:hidden}
+.portrait:hover{transform:rotate(-.4deg) scale(1.01)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:16px}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 28px rgba(31,26,23,0.05);transition:transform .22s,box-shadow .22s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(31,26,23,0.08)}
+.card h3{font-family:var(--H);font-style:italic;font-size:1.05rem;margin-bottom:10px;color:var(--ink)}
+.card p,.card li{color:#4a423d;line-height:1.7;font-size:.88rem}
+.card ul{padding-left:16px}
+.card li+li{margin-top:4px}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.two-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.four-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+/* RULE & CHIPS */
+.rule{height:1px;background:var(--line);margin:2rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2rem}
+.chip{font-family:var(--B);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--line);color:var(--muted);border-radius:2px;transition:all .18s;cursor:none}
+.chip:hover,.chip.red{border-color:var(--burg);color:var(--burg)}
+
+/* SECTION LABELS */
+.sec-label{font-family:var(--BB);font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--burg);margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:8px;height:1px;background:var(--burg);display:block}
+
+/* EDITORIAL MOODBOARD GRID */
+.mb{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-bottom:10px}
+.mi{position:relative;overflow:hidden;background:#1a1614;cursor:none;transition:transform .3s cubic-bezier(.23,1,.32,1),box-shadow .3s}
+.mi:hover{transform:scale(1.025) rotate(.2deg);z-index:5;box-shadow:0 10px 28px rgba(0,0,0,.2)}
+.mi.c3{grid-column:span 3}.mi.c4{grid-column:span 4}.mi.c5{grid-column:span 5}.mi.c6{grid-column:span 6}.mi.c7{grid-column:span 7}
+.mi-img{width:100%;aspect-ratio:3/4;background:linear-gradient(155deg,#181412,#0c0a08);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.mi.wide .mi-img{aspect-ratio:16/7}
+.mi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(20%) contrast(1.06);transition:filter .35s,transform .5s cubic-bezier(.23,1,.32,1)}
+.mi:hover img{filter:grayscale(60%) contrast(1.1) blur(3px);transform:scale(1.05)}
+.mi-ph{font-family:var(--B);font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.18);text-align:center;padding:8px;line-height:1.8}
+.mi:hover .mi-ph{opacity:0}
+.mi-over{position:absolute;inset:0;background:rgba(18,14,12,.82);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:12px;opacity:0;transition:opacity .26s}
+.mi:hover .mi-over{opacity:1}
+.mi-name{font-family:var(--BB);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:white;line-height:1}
+.mi-role{font-family:var(--B);font-size:.48rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(176,168,152,.8);margin-top:3px}
+.mi-link{font-family:var(--B);font-size:.45rem;color:rgba(200,168,78,.8);margin-top:4px}
+.ai-badge{position:absolute;top:7px;right:7px;z-index:6;font-family:var(--B);font-size:.38rem;letter-spacing:.18em;text-transform:uppercase;background:white;color:var(--ink);padding:2px 6px}
+
+/* PROJECT BLOCKS */
+.proj-block{margin-bottom:0}
+.proj-divider{height:1px;background:var(--line);margin:52px 0}
+.proj-tag{font-family:var(--B);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--burg);margin-bottom:10px}
+.proj-title{font-family:var(--BB);font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;letter-spacing:-.01em;line-height:.9;color:var(--ink);margin-bottom:14px}
+.proj-desc{font-family:var(--B);font-size:.88rem;line-height:1.75;color:#4a423d;max-width:680px;margin-bottom:16px}
+.proj-link{display:inline-block;font-family:var(--B);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:white;background:var(--burg);padding:9px 20px;text-decoration:none;transition:background .2s;cursor:none}
+.proj-link:hover{background:var(--ink)}
+.proj-header{margin-bottom:24px}
+
+/* gallery layouts */
+.proj-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:16px}
+.proj-gallery.two-col{grid-template-columns:repeat(2,1fr)}
+.proj-gallery.single{grid-template-columns:1fr;max-width:420px}
+.proj-gallery.full{grid-template-columns:1fr}
+.proj-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;border-radius:4px;transition:transform .3s}
+.proj-img.span2{grid-column:span 2;aspect-ratio:21/9}
+.proj-img.tall{aspect-ratio:4/3}
+.proj-img.full-w{aspect-ratio:21/8;grid-column:1/-1}
+.proj-gallery.two-col .proj-img{aspect-ratio:3/4;object-position:top}
+.proj-gallery.single .proj-img{aspect-ratio:9/16;object-position:top;max-height:600px;width:auto}
+.proj-img:hover{transform:scale(1.015)}
+
+/* large ferrari layout */
+.ferrari-gallery{display:grid;gap:8px;margin-bottom:16px}
+.ferrari-gallery .fi{width:100%;display:block;border-radius:6px;object-fit:cover}
+.ferrari-gallery .fi.main{aspect-ratio:21/9;width:100%}
+.ferrari-gallery .fi.sub{aspect-ratio:16/9}
+.ferrari-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+
+/* AI disclaimer */
+.ai-disclaimer{font-family:var(--B);font-size:.72rem;line-height:1.7;color:var(--muted);background:rgba(31,26,23,0.04);border-left:3px solid var(--burg);padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:24px;font-style:italic}
+
+/* videos */
+.proj-videos{margin-top:16px}
+.proj-vid-label{font-family:var(--B);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.proj-video{width:100%;max-width:700px;border-radius:6px;background:#1a1410;display:block}
+.proj-vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
+.proj-vid-item{display:flex;flex-direction:column;gap:8px}
+.proj-video-sm{width:100%;border-radius:6px;background:#1a1410;aspect-ratio:9/16;object-fit:cover}
+.proj-vid-cap{font-family:var(--B);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* E-COMMERCE GRID */
+.ec-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.ec-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:4px}
+.ec-n{font-family:var(--BB);font-size:2.4rem;line-height:1;color:var(--burg)}
+.ec-l{font-family:var(--B);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.ec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:24px}
+.ec-item{position:relative;overflow:hidden;border-radius:4px;cursor:none}
+.ec-img-wrap{position:relative;overflow:hidden}
+.ec-img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top;transition:transform .4s cubic-bezier(.23,1,.32,1),filter .3s;filter:grayscale(8%) contrast(1.04)}
+.ec-item:hover .ec-img{transform:scale(1.04);filter:grayscale(40%) contrast(1.08)}
+.ec-over{position:absolute;inset:0;background:rgba(31,26,23,0.78);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:12px;opacity:0;transition:opacity .25s}
+.ec-item:hover .ec-over{opacity:1}
+.ec-brand{font-family:var(--BB);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:white;line-height:1}
+.ec-role{font-family:var(--B);font-size:.44rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(176,168,152,.8);margin-top:3px}
+
+/* TIMELINE */
+.tl{display:grid;gap:0}
+.ti{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line);transition:background .2s}
+.ti:first-child{border-top:none}
+.ti:hover{background:rgba(255,255,255,.45)}
+.ti-y{font-family:var(--B);font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--burg);padding-top:3px}
+.ti h3{font-family:var(--H);font-style:italic;font-size:1.05rem;margin-bottom:5px;color:var(--ink);line-height:1.2}
+.ti .co{font-family:var(--B);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block}
+.ti p{font-family:var(--B);font-size:.82rem;line-height:1.85;color:#4a423d}
+.ti .nt{font-family:var(--H);font-style:italic;font-size:.85rem;color:var(--burg);opacity:.6;margin-top:5px;display:block}
+.ti.now{border-left:2px solid var(--burg);padding-left:16px}
+.ti.now h3,.ti.now .ti-y{color:var(--burg)}
+.pol{background:white;padding:6px 6px 20px;box-shadow:2px 3px 10px rgba(0,0,0,.12);display:inline-block}
+.pol img{display:block;width:100%;object-fit:cover;object-position:top}
+
+/* GASOLINE */
+.gas-n{font-family:var(--B);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.makes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:28px}
+.make{display:grid;grid-template-columns:3px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);cursor:none;transition:gap .2s}
+.make:hover{gap:18px}
+.make-bar{background:rgba(31,26,23,.1);min-height:32px;transition:background .2s}
+.make:hover .make-bar{background:var(--burg)}
+.make h4{font-family:var(--H);font-style:italic;font-size:.93rem;color:var(--ink);margin-bottom:3px}
+.make p{font-family:var(--B);font-size:.72rem;line-height:1.65;color:var(--muted)}
+.gas-disclaimer{font-family:var(--H);font-style:italic;font-size:1rem;color:var(--muted);margin-bottom:2rem;line-height:1.6;max-width:640px;border-left:2px solid var(--line);padding-left:16px}
+
+/* TEXT ME */
+.textme-card{cursor:none}
+.textme-wrap{position:relative;margin-top:8px;display:inline-block}
+.textme-closed,.textme-open{display:block;max-width:140px;border-radius:6px;transition:opacity .35s ease}
+.textme-open{position:absolute;top:0;left:0;opacity:0;max-width:100%;width:auto;max-height:80px;border-radius:6px}
+.textme-card:hover .textme-closed{opacity:0}
+.textme-card:hover .textme-open{opacity:1}
+
+/* CONTACT */
+.contact-link{display:block;text-decoration:none;transition:transform .22s,box-shadow .22s}
+.contact-link:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(31,26,23,0.1)}
+.contact-icon{font-family:var(--BB);font-size:1.4rem;color:var(--burg);margin-bottom:8px;letter-spacing:.02em}
+.cv-row{margin-top:28px;padding:28px 32px;background:var(--ink);border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.cv-row>.cv-text{color:var(--cream)}
+.cv-btn{display:inline-block;font-family:var(--BB);font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--cream);padding:14px 32px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s;cursor:none}
+.cv-btn:hover{background:var(--burg);color:white}
+
+/* ASK SOPHIA */
+.ask-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+.ask-pre{font-family:var(--H);font-style:italic;font-size:1.1rem;color:var(--muted);margin-bottom:1.6rem;line-height:1.55}
+.aq{font-family:var(--B);font-size:.82rem;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px;cursor:none;transition:color .18s,padding-left .18s}
+.aq::before{content:'→';color:var(--burg);font-size:.65rem;flex-shrink:0}
+.aq:hover{color:var(--ink);padding-left:7px}
+.chat{background:white;border:1px solid var(--line);overflow:hidden;box-shadow:4px 4px 0 rgba(31,26,23,.06)}
+.chat-hdr{background:var(--ink);padding:11px 16px;display:flex;align-items:center;justify-content:space-between}
+.chat-hdr-t{font-family:var(--H);font-style:italic;font-size:1rem;color:#f6f1e8}
+.chat-dot{width:7px;height:7px;border-radius:50%;background:var(--burg2);animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.chat-msgs{padding:14px;min-height:190px;max-height:240px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin}
+.cm{font-size:.8rem;line-height:1.7}
+.cm.u{text-align:right;font-family:var(--B);color:var(--muted);font-style:italic}
+.cm.s{font-family:var(--B);font-size:.82rem;color:var(--ink);border-left:2px solid var(--burg);padding-left:10px}
+.cm.s .ca{display:block;font-family:var(--B);font-size:.42rem;letter-spacing:.25em;text-transform:uppercase;color:var(--burg);margin-bottom:3px}
+.cm.ld{color:var(--muted);font-style:italic}
+.chat-bar{border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:8px;align-items:center}
+.chat-inp{flex:1;background:none;border:none;border-bottom:1.5px solid var(--line);font-family:var(--B);font-style:italic;font-size:.88rem;color:var(--ink);padding:4px 0;outline:none;transition:border-color .2s}
+.chat-inp:focus{border-color:var(--burg)}
+.chat-inp::placeholder{color:var(--muted);opacity:.5}
+.chat-send{background:var(--ink);border:none;color:white;padding:7px 14px;cursor:none;font-family:var(--B);font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;transition:background .2s}
+.chat-send:hover{background:var(--burg)}
+
+/* FOOTER */
+footer{padding:28px 28px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-family:var(--B);font-size:.7rem;letter-spacing:.1em;color:var(--muted);background-color:var(--warm)}
+.footer-brand{font-family:var(--H);font-style:italic;font-size:1rem;color:var(--burg)}
+
+
+/* BRAND LOGOS */
+.ec-logo-row { margin-bottom:16px; }
+.ec-logo { height:28px; width:auto; display:block; opacity:.75; filter:invert(0); }
+
+
+/* BIFFI GALLERY */
+.biffi-gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:6px;
+  margin-bottom:16px;
+}
+.biffi-item {
+  position:relative;
+  overflow:hidden;
+  border-radius:4px;
+  cursor:none;
+}
+.biffi-img {
+  width:100%;
+  display:block;
+  object-fit:cover;
+  aspect-ratio:3/4;
+  object-position:top;
+  filter:contrast(1.03);
+  transition:transform .4s cubic-bezier(.23,1,.32,1), filter .3s;
+}
+.biffi-item:hover .biffi-img {
+  transform:scale(1.04);
+  filter:contrast(1.06) brightness(.88);
+}
+.biffi-over {
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:12px;
+  background:linear-gradient(transparent, rgba(31,26,23,.7));
+  opacity:0;
+  transition:opacity .28s;
+  font-family:var(--B);
+  font-size:.48rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:white;
+}
+.biffi-item:hover .biffi-over { opacity:1; }
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  #overview,.three-grid,.four-grid,.ec-stats{grid-template-columns:1fr}
+  .ti{grid-template-columns:1fr}
+  .ask-grid{grid-template-columns:1fr}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .proj-gallery{grid-template-columns:repeat(2,1fr)}
+  .proj-img.span2{grid-column:span 2}
+  .proj-vid-grid{grid-template-columns:repeat(2,1fr)}
+  .ferrari-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .tabs{display:none}
+  .notes{grid-template-columns:1fr}
+  .ec-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-vid-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<input type="file" id="photoUpload" accept="image/*" style="display:none" onchange="loadPhoto(event)">
+<div class="cur-dot"></div>
+<div class="cur-ring"></div>
+
+<!-- COVER -->
+<div id="cover">
+  <div class="folder" id="folder" onclick="openFolder()">
+    <div class="folder-body">
+      <div class="f-big">Sophia</div>
+      <div class="f-ital">Boleaga</div>
+      <div class="f-foot">
+        <span class="f-label">Portfolio — 2026</span>
+        <span class="f-sub">Dive into my creative mind</span>
+      </div>
+      <div class="f-hint">open ↗</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header id="topbar">
+  <div class="brand">Sophia Boleaga</div>
+  <nav class="tabs">
+    <a class="tab" href="#overview"><span class="tab-n">01</span>Overview</a>
+    <a class="tab" href="#about"><span class="tab-n">02</span>About</a>
+    <a class="tab" href="#projects"><span class="tab-n">03</span>Projects</a>
+    <a class="tab" href="#ecommerce"><span class="tab-n">04</span>E-Commerce</a>
+    <a class="tab" href="#ai"><span class="tab-n">05</span>AI</a>
+    <a class="tab" href="#editorial"><span class="tab-n">06</span>Editorials</a>
+    <a class="tab" href="#contact"><span class="tab-n">07</span>Contact</a>
+  </nav>
+</header>
+
+<!-- ══ 00 OVERVIEW ══ -->
+<section id="overview">
+  <div class="hero-left">
+    <div class="eyebrow sr">Digital Art Director &amp; Creative Producer</div>
+    <h1 class="sr d1">Sophia<em>Boleaga</em></h1>
+    <p class="hero-sub sr d2">Digital Art Director &amp; Creative Producer with 5 years of experience participating in leading visual campaigns for luxury fashion and e-commerce. Specialising in brand storytelling, content production, and creative direction across editorial, digital, and AI-generated content.</p>
+    <div class="notes sr d3">
+      <div class="note"><small>Role</small><div class="note-v">Digital Art Director &amp; Creative Producer</div></div>
+      <div class="note"><small>Location</small><div class="note-v">Milan, Italy ✈ Open to relocate</div></div>
+      <div class="note"><small>Nationality</small><div class="note-v">Mexican 🇲🇽 — CDMX</div></div>
+      <div class="note"><small>Languages</small><div class="note-v">ES · EN · IT · FR</div></div>
+      <div class="note"><small>Education</small><div class="note-v">Marangoni <span style="color:var(--burg)">Scholarship · CUM LAUDE</span> · Iberoamericana</div></div>
+      <div class="note"><small>Tools</small><div class="note-v">Adobe CC · Figma · Capture One · AI & CGI</div></div>
+      <div class="note"><small>Work Permit</small><div class="note-v">Valid 10-year EU work permit 🇪🇺</div></div>
+    </div>
+  </div>
+  <div class="hero-right sr sr2 d2" style="display:flex;flex-direction:column;align-items:center;gap:20px">
+    <div class="portrait">
+      <img src="images/img_png_001.png" alt="Sophia Boleaga">
+    </div>
+    <div style="display:inline-block;background:white;padding:8px 8px 28px 8px;box-shadow:2px 4px 14px rgba(31,26,23,0.18);transform:rotate(2deg);align-self:flex-end;margin-right:12px">
+      <img src="images/baby_sophia_polaroid.jpg" alt="Baby Sophia — Mexico City" style="width:100px;display:block;filter:contrast(1.05) saturate(0.9)">
+      <div style="text-align:center;margin-top:8px;font-family:var(--H);font-style:italic;font-size:.6rem;color:#888;letter-spacing:.04em">cdmx, always</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 01 ABOUT ══ -->
+<section id="about">
+  <div class="sec-head sr">
+    <h2>About</h2>
+    <p>The person, the background, the eye behind the work.</p>
+  </div>
+  <div class="two-grid" style="margin-bottom:16px">
+    <div class="card sr d1" style="position:relative">
+      <h3>Background</h3>
+      <p>Based in Milan, born and raised in Mexico City, I bring over five years of experience working across fashion styling, visual research, and content production. My work focuses on developing strong visual narratives that translate brand identity into compelling imagery and digital content.</p>
+      <p style="margin-top:12px">Alongside traditional creative processes, I actively experiment with AI tools to support concept development, moodboarding, and visual storytelling.</p>
+      <p style="margin-top:12px">This portfolio presents selected projects and creative explorations that reflect my approach to fashion image-making and brand communication.</p>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
+        <h3>Education</h3>
+        <ul style="margin-top:8px">
+          <li>BA Fashion Design — Universidad Iberoamericana</li>
+          <li>Fashion Styling &amp; Photography — Istituto Marangoni Milano <span style="color:var(--burg);font-weight:500">Scholarship recipient · Cum Laude</span></li>
+        </ul>
+      </div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--line)">
+        <h3>Certifications</h3>
+        <ul style="margin-top:8px">
+          <li>High Performance Leadership: Lessons from Formula 1 — Santander Academy</li>
+          <li>Digital Marketing — Business of Fashion</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card sr d2">
+      <h3>Skills</h3>
+      <ul>
+        <li>Creative &amp; art direction</li>
+        <li>Production coordination — 450+ assets/day</li>
+        <li>Styling · editorial &amp; e-commerce</li>
+        <li>Budget management &amp; KPI tracking</li>
+        <li>Storyboarding &amp; creative briefing</li>
+        <li>Shoot logistics &amp; vendor coordination</li>
+      </ul>
+      <div style="margin-top:16px">
+        <img src="images/tools_folder.png" alt="Tools" style="width:75%;display:block;mix-blend-mode:multiply;margin:0 auto">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══ INTERESTS ══ -->
+<section id="interests" style="padding:60px 28px;border-bottom:1px solid var(--line)">
+  <div class="sec-head sr" style="margin-bottom:28px">
+    <h2>Interests</h2>
+    <p>What drives the eye beyond the studio.</p>
+  </div>
+  <div class="sr d1" style="border-radius:12px;overflow:hidden">
+    <img src="images/interest_motorsport.png" alt="Motorsport Interest — fashion, function and identity" style="width:100%;display:block">
+  </div>
+</section>
+
+<!-- ══ 03 PROJECTS ══ -->
+<section id="projects">
+  <div class="sec-head sr">
+    <h2>Projects</h2>
+    <p>Selected productions — editorial, music video, and writing.</p>
+  </div>
+
+  <style>
+  .vnav-card:hover img { transform: scale(1.03); }
+  .vnav-card:hover .vnav-label { opacity: 1 !important; transform: translateY(0) !important; }
+  @media(max-width:600px){ .vnav-row { grid-template-columns: 1fr !important; } }
+  </style>
+  <div class="vnav-row sr d1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:48px">
+
+    <a href="#ecommerce" style="text-decoration:none;display:block;cursor:none" class="vnav-card">
+      <img src="images/menu_ecommerce.png" alt="E-Commerce" style="width:100%;display:block;transition:transform .5s ease;mix-blend-mode:multiply">
+      <div style="margin-top:10px;font-family:var(--BB);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--burg)" class="vnav-label">E-Commerce →</div>
+    </a>
+
+    <a href="#ai" style="text-decoration:none;display:block;cursor:none" class="vnav-card">
+      <img src="images/menu_ai.png" alt="AI Projects" style="width:100%;display:block;transition:transform .5s ease;mix-blend-mode:multiply">
+      <div style="margin-top:10px;font-family:var(--BB);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--burg)" class="vnav-label">AI Projects →</div>
+    </a>
+
+    <a href="#editorial" style="text-decoration:none;display:block;cursor:none" class="vnav-card">
+      <img src="images/menu_editorials.png" alt="Editorials" style="width:100%;display:block;transition:transform .5s ease;mix-blend-mode:multiply">
+      <div style="margin-top:10px;font-family:var(--BB);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--burg)" class="vnav-label">Editorials →</div>
+    </a>
+
+  </div>
+
+
+</section>
+
+<section id="ecommerce">
+  <div class="sec-head sr">
+    <h2>E-Commerce</h2>
+    <p>Fashion Styling and on set assistance — NET-A-PORTER, MR PORTER. Leading global luxury e-commerce platforms with editorial-level imagery selling international brands.</p>
+  </div>
+
+  <div class="ec-stats sr d1">
+    <div class="ec-stat"><span class="ec-n">450+</span><span class="ec-l">assets per day</span></div>
+    <div class="ec-stat"><span class="ec-n">30+</span><span class="ec-l">shoots per month</span></div>
+    <div class="ec-stat"><span class="ec-n">7,700+</span><span class="ec-l">assets monthly</span></div>
+    <div class="ec-stat"><span class="ec-n">800+</span><span class="ec-l">luxury brands styled</span></div>
+  </div>
+
+  <!-- NAP -->
+  <div class="ec-logo-row sr"><img src="images/img_jpeg_024.jpeg" alt="NET-A-PORTER" class="ec-logo"></div>
+  <div class="sec-label sr">NET-A-PORTER</div>
+  <div class="ec-grid sr d1">
+    <div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_025.jpeg" alt="NET-A-PORTER" class="ec-img"><div class="ec-over"><div class="ec-brand">NET-A-PORTER</div><div class="ec-role">RTW · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_026.jpeg" alt="NET-A-PORTER" class="ec-img"><div class="ec-over"><div class="ec-brand">NET-A-PORTER</div><div class="ec-role">RTW · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_027.jpeg" alt="NET-A-PORTER" class="ec-img"><div class="ec-over"><div class="ec-brand">NET-A-PORTER</div><div class="ec-role">RTW · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_028.jpeg" alt="Burberry" class="ec-img"><div class="ec-over"><div class="ec-brand">Burberry</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_029.jpeg" alt="Burberry" class="ec-img"><div class="ec-over"><div class="ec-brand">Burberry</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_030.jpeg" alt="Citizens of Humanity" class="ec-img"><div class="ec-over"><div class="ec-brand">Citizens of Humanity</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_031.jpeg" alt="Isabel Marant" class="ec-img"><div class="ec-over"><div class="ec-brand">Isabel Marant</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_032.jpeg" alt="Jacquemus" class="ec-img"><div class="ec-over"><div class="ec-brand">Jacquemus</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_033.jpeg" alt="Jil Sander" class="ec-img"><div class="ec-over"><div class="ec-brand">Jil Sander</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_034.jpeg" alt="Loewe" class="ec-img"><div class="ec-over"><div class="ec-brand">Loewe</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_035.jpeg" alt="Magda Butrym" class="ec-img"><div class="ec-over"><div class="ec-brand">Magda Butrym</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_036.jpeg" alt="Marni" class="ec-img"><div class="ec-over"><div class="ec-brand">Marni</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_037.jpeg" alt="Polo RL Purple Label" class="ec-img"><div class="ec-over"><div class="ec-brand">Polo RL Purple Label</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_038.jpeg" alt="Rabanne" class="ec-img"><div class="ec-over"><div class="ec-brand">Rabanne</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_039.jpeg" alt="Ralph Lauren" class="ec-img"><div class="ec-over"><div class="ec-brand">Ralph Lauren</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_040.jpeg" alt="Staud" class="ec-img"><div class="ec-over"><div class="ec-brand">Staud</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_041.jpeg" alt="The Frankie Shop" class="ec-img"><div class="ec-over"><div class="ec-brand">The Frankie Shop</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_042.jpeg" alt="Thom Browne" class="ec-img"><div class="ec-over"><div class="ec-brand">Thom Browne</div><div class="ec-role">On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_043.jpeg" alt="Veronica Beard" class="ec-img"><div class="ec-over"><div class="ec-brand">Veronica Beard</div><div class="ec-role">On-model</div></div></div></div>
+  </div>
+  <div class="sr d1" style="margin-bottom:32px">
+    <div class="proj-vid-label">Studio detail — product in motion</div>
+    <video controls playsinline class="proj-video" style="max-width:500px">
+      <source src="images/video_001.mp4" type="video/mp4">
+    </video>
+  </div>
+
+
+  <div class="rule"></div>
+
+  <!-- MR PORTER e-commerce grid -->
+  <div class="ec-logo-row sr"><img src="images/img_png_003.png" alt="MR PORTER" class="ec-logo"></div>
+  <div class="sec-label sr">MR PORTER</div>
+  <div class="ec-grid sr d1">
+    <div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_044.jpeg" alt="A.P.C." class="ec-img"><div class="ec-over"><div class="ec-brand">A.P.C.</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_045.jpeg" alt="Brunello Cucinelli" class="ec-img"><div class="ec-over"><div class="ec-brand">Brunello Cucinelli</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_046.jpeg" alt="Burberry" class="ec-img"><div class="ec-over"><div class="ec-brand">Burberry</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_047.jpeg" alt="Burberry" class="ec-img"><div class="ec-over"><div class="ec-brand">Burberry</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_048.jpeg" alt="Cherry Los Angeles" class="ec-img"><div class="ec-over"><div class="ec-brand">Cherry Los Angeles</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_049.jpeg" alt="Dime" class="ec-img"><div class="ec-over"><div class="ec-brand">Dime</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_050.jpeg" alt="Dime" class="ec-img"><div class="ec-over"><div class="ec-brand">Dime</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_051.jpeg" alt="Drake's" class="ec-img"><div class="ec-over"><div class="ec-brand">Drake's</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_052.jpeg" alt="Maison Margiela" class="ec-img"><div class="ec-over"><div class="ec-brand">Maison Margiela</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_053.jpeg" alt="Marni" class="ec-img"><div class="ec-over"><div class="ec-brand">Marni</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_054.jpeg" alt="Marni" class="ec-img"><div class="ec-over"><div class="ec-brand">Marni</div><div class="ec-role">Detail shot</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_055.jpeg" alt="Marni" class="ec-img"><div class="ec-over"><div class="ec-brand">Marni</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_056.jpeg" alt="New Balance" class="ec-img"><div class="ec-over"><div class="ec-brand">New Balance</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_057.jpeg" alt="Officine Générale" class="ec-img"><div class="ec-over"><div class="ec-brand">Officine Générale</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_058.jpeg" alt="Our Legacy" class="ec-img"><div class="ec-over"><div class="ec-brand">Our Legacy</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_059.jpeg" alt="Polo Ralph Lauren" class="ec-img"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_060.jpeg" alt="Polo Ralph Lauren" class="ec-img"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_061.jpeg" alt="Polo Ralph Lauren" class="ec-img"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_062.jpeg" alt="Sacai" class="ec-img"><div class="ec-over"><div class="ec-brand">Sacai</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+    <div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_063.jpeg" alt="The Row" class="ec-img"><div class="ec-over"><div class="ec-brand">The Row</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_064.jpeg" alt="Tom Ford" class="ec-img"><div class="ec-over"><div class="ec-brand">Tom Ford</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_065.jpeg" alt="Tom Ford" class="ec-img"><div class="ec-over"><div class="ec-brand">Tom Ford</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_066.jpeg" alt="Tom Ford" class="ec-img"><div class="ec-over"><div class="ec-brand">Tom Ford</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_067.jpeg" alt="Valentino" class="ec-img"><div class="ec-over"><div class="ec-brand">Valentino</div><div class="ec-role">RTW Men · On-model</div></div></div></div>
+  </div>
+  <div class="sr d1" style="margin-bottom:32px">
+    <div class="proj-vid-label">Product detail — Marni shirt in motion</div>
+    <video controls playsinline class="proj-video" style="max-width:500px">
+      <source src="images/video_002.mp4" type="video/mp4">
+    </video>
+  </div>
+
+
+  <div class="rule"></div>
+  <!-- Home & Lifestyle merged -->
+  <div class="sec-label sr">Home &amp; Lifestyle</div>
+  <p class="proj-desc sr" style="margin-bottom:24px">NET-A-PORTER &amp; MR PORTER — Home, lifestyle, and interiors editorial production. Creative direction from briefing to final image.</p>
+  <div class="ec-stats sr d1" style="margin-bottom:24px">
+    <div class="ec-stat"><span class="ec-n">2</span><span class="ec-l">platforms</span></div>
+    <div class="ec-stat"><span class="ec-n">10+</span><span class="ec-l">lifestyle brands</span></div>
+    <div class="ec-stat"><span class="ec-n">5%</span><span class="ec-l">lift in product page visits</span></div>
+  </div>
+
+  <div class="ec-grid sr d2">
+    <div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_068.jpeg" alt="Soho Home" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Soho Home</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_069.jpeg" alt="Reflections Copenhagen" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Reflections Copenhagen</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_070.jpeg" alt="Reflections Copenhagen" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Reflections Copenhagen</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_071.jpeg" alt="Reflections Copenhagen" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Reflections Copenhagen</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_072.jpeg" alt="La DoubleJ" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">La DoubleJ</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_073.jpeg" alt="Polo Ralph Lauren" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_074.jpeg" alt="Polo Ralph Lauren" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_075.jpeg" alt="Polo Ralph Lauren" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_076.jpeg" alt="Polo Ralph Lauren" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_077.jpeg" alt="Polo Ralph Lauren" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Polo Ralph Lauren</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_078.jpeg" alt="Neighborhood" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Neighborhood</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_079.jpeg" alt="Neighborhood" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Neighborhood</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_080.jpeg" alt="Loewe" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Loewe</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_081.jpeg" alt="Loewe" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Loewe</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_082.jpeg" alt="Loewe" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Loewe</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_083.jpeg" alt="A.P.C." class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">A.P.C.</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_084.jpeg" alt="Christofle" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Christofle</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_085.jpeg" alt="Christofle" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Christofle</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_086.jpeg" alt="Christofle" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Christofle</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+<div class="ec-item"><div class="ec-img-wrap"><img src="images/img_jpeg_087.jpeg" alt="Christofle" class="ec-img" style="aspect-ratio:3/4;object-position:center"><div class="ec-over"><div class="ec-brand">Christofle</div><div class="ec-role">Home & Lifestyle</div></div></div></div>
+  </div>
+
+</section>
+
+<section id="ai">
+  <div class="sec-head sr">
+    <h2>AI</h2>
+    <p>Conceptual campaigns and motion content created using AI image and video generation.</p>
+  </div>
+
+  <div class="ai-disclaimer sr">
+    ✦ All content in this section has been created by me for personal use, not in direct collaboration with the brands. Any use, reproduction, or sharing of my ideas, images, or work without prior permission and proper credit is not permitted.
+  </div>
+
+  <!-- Ferrari -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">AI Concept · Personal Project · Milan 2025</div>
+      <div class="proj-title">Ferrari — Heritage in Motion</div>
+      <p class="proj-desc">A conceptual editorial campaign exploring Ferrari Lifestyle through AI-generated imagery and creative direction. Inspired by Ferrari's heritage and Rocco Iannone's contemporary vision — motorsport culture, Italian elegance, and fashion intersecting in one visual universe. Developed three content pillars: Editorial Campaign for Print, The Paddock is the New Catwalk for Digital/Social, and Spoiler Alert! New Bag Lookbook.</p>
+    </div>
+    <style>
+      .fs-wrap{position:relative;width:100%;border-radius:10px;overflow:hidden;background:#0a0808;margin-bottom:16px;user-select:none}
+      .fs-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+      .fs-track img{min-width:100%;width:100%;display:block;object-fit:contain;max-height:70vh}
+      .fs-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,8,7,.55);border:none;color:white;font-size:1.8rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;line-height:1}
+      .fs-btn:hover{background:rgba(10,8,7,.85)}
+      .fs-prev{left:12px}.fs-next{right:12px}
+      .fs-dots{display:flex;justify-content:center;gap:6px;padding:10px 0}
+      .fs-dot{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s;cursor:pointer}
+      .fs-dot.on{background:var(--burg)}
+      .fs-counter{position:absolute;bottom:10px;right:14px;font-family:var(--BB);font-size:.55rem;letter-spacing:.2em;color:rgba(255,255,255,.5)}
+    </style>
+
+    <div class="fs-wrap sr d1" id="ferrariSlider">
+      <div class="fs-track" id="fsTrack">
+        <img src="images/ferrari_cover.png" alt="Ferrari — Heritage in Motion">
+        <img src="images/ferrari_moodboard.png" alt="Ferrari — The past in the present">
+        <img src="images/ferrari_content_platform.png" alt="Ferrari — Content for every platform">
+        <img src="images/ferrari_editorial.png" alt="Ferrari — Editorial imaginery campaign">
+        <img src="images/ferrari_paddock.png" alt="Ferrari — The Paddock is the new Catwalk">
+        <img src="images/ferrari_lookbook.png" alt="Ferrari — Spoiler alert! New bag lookbook">
+      </div>
+      <button class="fs-btn fs-prev" onclick="fsStep(-1)">&#8249;</button>
+      <button class="fs-btn fs-next" onclick="fsStep(1)">&#8250;</button>
+      <div class="fs-counter" id="fsCounter">1 / 6</div>
+    </div>
+    <div class="fs-dots" id="fsDots">
+      <div class="fs-dot on" onclick="fsGo(0)"></div>
+      <div class="fs-dot" onclick="fsGo(1)"></div>
+      <div class="fs-dot" onclick="fsGo(2)"></div>
+      <div class="fs-dot" onclick="fsGo(3)"></div>
+      <div class="fs-dot" onclick="fsGo(4)"></div>
+      <div class="fs-dot" onclick="fsGo(5)"></div>
+    </div>
+    <div style="border-radius:6px;overflow:hidden;margin-bottom:16px">
+      <video controls playsinline style="width:100%;display:block;border-radius:6px">
+        <source src="images/video_003.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <script>
+    let _fsIdx=0,_fsTotal=6;
+    function fsUpdate(){
+      document.getElementById('fsTrack').style.transform='translateX(-'+(_fsIdx*100)+'%)';
+      document.getElementById('fsCounter').textContent=(_fsIdx+1)+' / '+_fsTotal;
+      document.querySelectorAll('.fs-dot').forEach((d,i)=>d.classList.toggle('on',i===_fsIdx));
+    }
+    function fsStep(d){_fsIdx=(_fsIdx+d+_fsTotal)%_fsTotal;fsUpdate();}
+    function fsGo(i){_fsIdx=i;fsUpdate();}
+    document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')fsStep(-1);if(e.key==='ArrowRight')fsStep(1);});
+    </script>
+  </div>
+
+  <div class="proj-divider"></div>
+
+  <!-- AI Brand Animations -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">AI Motion · Personal Creative Work · 2024–2025</div>
+      <div class="proj-title">Brand Motion Concepts</div>
+      <p class="proj-desc">A personal series of AI-generated motion concepts exploring how luxury brand identity translates into movement and narrative. Created for Loewe, Valentino, Valentino × Vans, Marni, and Schiaparelli.</p>
+    </div>
+    <div class="proj-vid-grid sr d1">
+      <div class="proj-vid-item"><video controls playsinline muted class="proj-video-sm" loop><source src="images/video_004.mp4" type="video/mp4"></video><div class="proj-vid-cap">Loewe</div></div>
+<div class="proj-vid-item"><video controls playsinline muted class="proj-video-sm" loop><source src="images/video_005.mp4" type="video/mp4"></video><div class="proj-vid-cap">Loewe II</div></div>
+<div class="proj-vid-item"><video controls playsinline muted class="proj-video-sm" loop><source src="images/video_006.mp4" type="video/mp4"></video><div class="proj-vid-cap">Valentino</div></div>
+<div class="proj-vid-item"><video controls playsinline muted class="proj-video-sm" loop><source src="images/video_007.mp4" type="video/mp4"></video><div class="proj-vid-cap">Valentino × Vans</div></div>
+<div class="proj-vid-item"><video controls playsinline muted class="proj-video-sm" loop><source src="images/video_008.mp4" type="video/mp4"></video><div class="proj-vid-cap">Marni</div></div>
+<div class="proj-vid-item"><video controls playsinline muted class="proj-video-sm" loop><source src="images/video_009.mp4" type="video/mp4"></video><div class="proj-vid-cap">Schiaparelli</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="editorial">
+  <div class="sec-head sr">
+    <h2>Editorials</h2>
+    <p>Fashion stories developed across magazine contexts, brand productions, and personal creative direction.</p>
+  </div>
+
+  <!-- Numero Berlin -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">Editorial · Styling Assistant · Numéro Berlin · SS22</div>
+      <div class="proj-title">Numéro Berlin — Empathy Issue SS22</div>
+      <p class="proj-desc">Worked as Styling Assistant on an editorial for Numéro Berlin's Empathy Issue SS22 — supporting the lead stylist across preparation, set, and post-shoot organisation. Shot on location in Milan.</p>
+    </div>
+
+    <!-- Cover -->
+    <div class="sr d1" style="margin-bottom:8px;border-radius:8px;overflow:hidden">
+      <img src="images/numero_main.png" alt="Numéro Berlin — Empathy Issue SS22 cover" style="width:100%;display:block">
+    </div>
+
+    <!-- Lightbox -->
+    <style>
+      .nb-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:16px}
+      .nb-item{position:relative;overflow:hidden;border-radius:6px;cursor:zoom-in;aspect-ratio:2/3}
+      .nb-item img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s ease;display:block}
+      .nb-item:hover img{transform:scale(1.04)}
+      .nb-lb{position:fixed;inset:0;background:rgba(10,8,7,.93);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+      .nb-lb.open{opacity:1;pointer-events:all}
+      .nb-lb img{max-width:88vw;max-height:90vh;object-fit:contain;border-radius:6px;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+      .nb-lb-close{position:absolute;top:20px;right:28px;color:white;font-size:2rem;cursor:pointer;opacity:.7;transition:opacity .2s;line-height:1}
+      .nb-lb-close:hover{opacity:1}
+      .nb-lb-prev,.nb-lb-next{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:2.4rem;cursor:pointer;padding:12px;opacity:.6;transition:opacity .2s;user-select:none}
+      .nb-lb-prev{left:12px}.nb-lb-next{right:12px}
+      .nb-lb-prev:hover,.nb-lb-next:hover{opacity:1}
+      @media(max-width:600px){.nb-grid{grid-template-columns:repeat(3,1fr)}}
+    </style>
+
+    <div id="nbLightbox" class="nb-lb" onclick="if(event.target===this)closeNB()">
+      <span class="nb-lb-close" onclick="closeNB()">✕</span>
+      <span class="nb-lb-prev" onclick="stepNB(-1)">‹</span>
+      <img id="nbLbImg" src="" alt="">
+      <span class="nb-lb-next" onclick="stepNB(1)">›</span>
+    </div>
+
+    <div class="nb-grid sr d2">
+      <div class="nb-item" onclick="openNB(0)"><img src="images/numero_01.jpg" alt="Numéro Berlin 01"></div>
+      <div class="nb-item" onclick="openNB(1)"><img src="images/numero_02.jpg" alt="Numéro Berlin 02"></div>
+      <div class="nb-item" onclick="openNB(2)"><img src="images/numero_03.jpg" alt="Numéro Berlin 03"></div>
+      <div class="nb-item" onclick="openNB(3)"><img src="images/numero_04.jpg" alt="Numéro Berlin 04"></div>
+      <div class="nb-item" onclick="openNB(4)"><img src="images/numero_05.jpg" alt="Numéro Berlin 05"></div>
+      <div class="nb-item" onclick="openNB(5)"><img src="images/numero_06.jpg" alt="Numéro Berlin 06"></div>
+      <div class="nb-item" onclick="openNB(6)"><img src="images/numero_07.jpg" alt="Numéro Berlin 07"></div>
+      <div class="nb-item" onclick="openNB(7)"><img src="images/numero_08.jpg" alt="Numéro Berlin 08"></div>
+      <div class="nb-item" onclick="openNB(8)"><img src="images/numero_09.jpg" alt="Numéro Berlin 09"></div>
+      <div class="nb-item" onclick="openNB(9)"><img src="images/numero_10.jpg" alt="Numéro Berlin 10"></div>
+      <div class="nb-item" onclick="openNB(10)"><img src="images/numero_11.jpg" alt="Numéro Berlin 11"></div>
+      <div class="nb-item" onclick="openNB(11)"><img src="images/numero_12.jpg" alt="Numéro Berlin 12"></div>
+      <div class="nb-item" onclick="openNB(12)"><img src="images/numero_13.jpg" alt="Numéro Berlin 13"></div>
+      <div class="nb-item" onclick="openNB(13)"><img src="images/numero_14.jpg" alt="Numéro Berlin 14"></div>
+      <div class="nb-item" onclick="openNB(14)"><img src="images/numero_15.jpg" alt="Numéro Berlin 15"></div>
+    </div>
+
+    <script>
+    const _nbImgs=['images/numero_01.jpg','images/numero_02.jpg','images/numero_03.jpg','images/numero_04.jpg','images/numero_05.jpg','images/numero_06.jpg','images/numero_07.jpg','images/numero_08.jpg','images/numero_09.jpg','images/numero_10.jpg','images/numero_11.jpg','images/numero_12.jpg','images/numero_13.jpg','images/numero_14.jpg','images/numero_15.jpg'];
+    let _nbIdx=0;
+    function openNB(i){_nbIdx=i;document.getElementById('nbLbImg').src=_nbImgs[i];document.getElementById('nbLightbox').classList.add('open');document.body.style.overflow='hidden';}
+    function closeNB(){document.getElementById('nbLightbox').classList.remove('open');document.body.style.overflow='';}
+    function stepNB(d){_nbIdx=(_nbIdx+d+_nbImgs.length)%_nbImgs.length;document.getElementById('nbLbImg').src=_nbImgs[_nbIdx];}
+    document.addEventListener('keydown',e=>{if(!document.getElementById('nbLightbox').classList.contains('open'))return;if(e.key==='Escape')closeNB();if(e.key==='ArrowLeft')stepNB(-1);if(e.key==='ArrowRight')stepNB(1);});
+    </script>
+  </div>
+
+  <div class="proj-divider"></div>
+
+  <!-- The Collector -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">Editorial · Styling Assistant · The Collector</div>
+      <div class="proj-title">The Collector</div>
+      <p class="proj-desc">Worked as Styling Assistant on an editorial for The Collector — supporting the lead stylist with look preparation, set dressing, and on-set coordination.</p>
+    </div>
+
+    <!-- Lightbox -->
+    <style>
+      .tc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:16px}
+      .tc-item{position:relative;overflow:hidden;border-radius:6px;cursor:zoom-in;aspect-ratio:3/4}
+      .tc-item img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s ease;display:block}
+      .tc-item:hover img{transform:scale(1.04)}
+      .tc-lb{position:fixed;inset:0;background:rgba(10,8,7,.93);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+      .tc-lb.open{opacity:1;pointer-events:all}
+      .tc-lb img{max-width:88vw;max-height:90vh;object-fit:contain;border-radius:6px;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+      .tc-lb-close{position:absolute;top:20px;right:28px;color:white;font-size:2rem;cursor:pointer;opacity:.7;transition:opacity .2s;line-height:1}
+      .tc-lb-close:hover{opacity:1}
+      .tc-lb-prev,.tc-lb-next{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:2.4rem;cursor:pointer;padding:12px;opacity:.6;transition:opacity .2s;user-select:none}
+      .tc-lb-prev{left:12px}.tc-lb-next{right:12px}
+      .tc-lb-prev:hover,.tc-lb-next:hover{opacity:1}
+      @media(max-width:600px){.tc-grid{grid-template-columns:repeat(3,1fr)}}
+    </style>
+
+    <div id="tcLightbox" class="tc-lb" onclick="if(event.target===this)closeTC()">
+      <span class="tc-lb-close" onclick="closeTC()">✕</span>
+      <span class="tc-lb-prev" onclick="stepTC(-1)">‹</span>
+      <img id="tcLbImg" src="" alt="">
+      <span class="tc-lb-next" onclick="stepTC(1)">›</span>
+    </div>
+
+    <div class="tc-grid sr d1">
+      <div class="tc-item" onclick="openTC(0)"><img src="images/collector_01.jpg" alt="The Collector 01"></div>
+      <div class="tc-item" onclick="openTC(1)"><img src="images/collector_02.jpg" alt="The Collector 02"></div>
+      <div class="tc-item" onclick="openTC(2)"><img src="images/collector_03.jpg" alt="The Collector 03"></div>
+      <div class="tc-item" onclick="openTC(3)"><img src="images/collector_04.jpg" alt="The Collector 04"></div>
+      <div class="tc-item" onclick="openTC(4)"><img src="images/collector_05.jpg" alt="The Collector 05"></div>
+      <div class="tc-item" onclick="openTC(5)"><img src="images/collector_06.jpg" alt="The Collector 06"></div>
+      <div class="tc-item" onclick="openTC(6)"><img src="images/collector_07.jpg" alt="The Collector 07"></div>
+      <div class="tc-item" onclick="openTC(7)"><img src="images/collector_08.jpg" alt="The Collector 08"></div>
+      <div class="tc-item" onclick="openTC(8)"><img src="images/collector_09.jpg" alt="The Collector 09"></div>
+      <div class="tc-item" onclick="openTC(9)"><img src="images/collector_10.jpg" alt="The Collector 10"></div>
+    </div>
+
+    <script>
+    const _tcImgs=['images/collector_01.jpg','images/collector_02.jpg','images/collector_03.jpg','images/collector_04.jpg','images/collector_05.jpg','images/collector_06.jpg','images/collector_07.jpg','images/collector_08.jpg','images/collector_09.jpg','images/collector_10.jpg'];
+    let _tcIdx=0;
+    function openTC(i){_tcIdx=i;document.getElementById('tcLbImg').src=_tcImgs[i];document.getElementById('tcLightbox').classList.add('open');document.body.style.overflow='hidden';}
+    function closeTC(){document.getElementById('tcLightbox').classList.remove('open');document.body.style.overflow='';}
+    function stepTC(d){_tcIdx=(_tcIdx+d+_tcImgs.length)%_tcImgs.length;document.getElementById('tcLbImg').src=_tcImgs[_tcIdx];}
+    document.addEventListener('keydown',e=>{if(!document.getElementById('tcLightbox').classList.contains('open'))return;if(e.key==='Escape')closeTC();if(e.key==='ArrowLeft')stepTC(-1);if(e.key==='ArrowRight')stepTC(1);});
+    </script>
+  </div>
+
+  <div class="proj-divider"></div>
+
+  <!-- Biffi Christmas -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">Christmas Editorial · Lake Como · Biffi Boutiques · 2022</div>
+      <div class="proj-title">Biffi Christmas Editorial</div>
+      <p class="proj-desc">End-to-end production of the Biffi Boutiques Christmas editorial, shot on location at Lake Como. Following climate delays, the entire timeline was restructured to deliver two full shoots in one day — on schedule and on budget.</p>
+    </div>
+    <div class="biffi-gallery sr d1">
+      <div class="biffi-item"><img src="images/img_jpeg_001.jpeg" alt="Biffi Christmas Editorial · Lake Como" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Lake Como</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_002.jpeg" alt="Biffi Christmas Editorial · Lake Como" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Lake Como</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_003.jpeg" alt="Biffi Christmas Editorial · Lake Como" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Lake Como</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_004.jpeg" alt="Biffi Christmas Editorial · Lake Como" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Lake Como</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_005.jpeg" alt="Biffi Christmas Editorial · Lake Como" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Lake Como</span></div></div>
+<div class="biffi-item"><img src="images/biffi_xmas_new1.jpg" alt="Biffi Christmas Editorial · Milan" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Milan</span></div></div>
+<div class="biffi-item"><img src="images/biffi_xmas_new2.jpg" alt="Biffi Christmas Editorial · Milan" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas Editorial · Milan</span></div></div>
+<div class="biffi-item"><img src="images/biffi_xmas_new3.png" alt="Biffi Christmas Editorial · Published" class="biffi-img"><div class="biffi-over"><span>Biffi Christmas · Published</span></div></div>
+    </div>
+  </div>
+
+  <div class="proj-divider"></div>
+
+  <!-- Biffi RTW -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">Editorial · E-Commerce · Biffi Boutiques · 2022–2023</div>
+      <div class="proj-title">Biffi Boutiques — RTW &amp; Campaigns</div>
+      <p class="proj-desc">Editorial and e-commerce production across women's and men's RTW for Biffi Boutiques. Developed media for socials, PDP, DLP, Landing page, newsletter. Coordinated ~70 SKUs on E-commerce per day, contributed to the launch and rebranding of the Biffi digital platform, and led "Shop the Look" integrations across the site.</p>
+    </div>
+    <div class="biffi-gallery sr d1">
+      <div class="biffi-item"><img src="images/img_jpeg_006.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_007.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_008.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_009.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_010.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_011.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_012.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_013.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_014.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_015.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_016.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_017.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_018.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_019.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/img_jpeg_020.jpeg" alt="Biffi Boutiques · Editorial" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · Editorial</span></div></div>
+<div class="biffi-item"><img src="images/biffi_rtw_new1.jpg" alt="Biffi Boutiques · RTW Men" class="biffi-img"><div class="biffi-over"><span>Biffi Boutiques · RTW Men</span></div></div>
+    </div>
+  </div>
+
+  <div class="proj-divider"></div>
+
+  <!-- Come Un Tuono -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">Music Video · Styling Assistant · Warner Music Italy</div>
+      <div class="proj-title">Rose Villain — Come un Tuono</div>
+      <p class="proj-desc">Styling Assistant on Rose Villain's "Come un Tuono" — a large-scale production involving multiple looks, sets, and talent coordination across a full shoot day. Produced by Warner Music Italy and MeNext.</p>
+      <a href="https://youtu.be/u-cx3TN7Sho?si=pW4iRvH8d025BDid" target="_blank" rel="noopener" class="proj-link">Watch on YouTube ↗</a>
+    </div>
+    <div class="proj-gallery two-col sr d1">
+      <img src="images/come_un_tuono_bts.png" alt="Come un Tuono — BTS film strip" class="proj-img" style="object-fit:cover;object-position:center">
+      <img src="images/come_un_tuono_title.png" alt="Come un Tuono — title card" class="proj-img" style="object-fit:cover;object-position:center">
+    </div>
+  </div>
+
+  <div class="proj-divider"></div>
+
+  <!-- Fashion Mood -->
+  <div class="proj-block sr">
+    <div class="proj-header">
+      <div class="proj-tag">Writing · Fashion Mood Mexican Magazine</div>
+      <div class="proj-title">Fashion Mood Magazine MX</div>
+      <p class="proj-desc">Fashion and culture contributor for Fashion Mood Mexico — publishing profiles, trend analysis, and cultural fashion commentary including a feature on Alaíde as the ideal contemporary profile for new generations.</p>
+    </div>
+    <div class="proj-gallery single sr d1">
+      <img src="images/fashion_mood_mexico.png" alt="Fashion Mood Magazine MX" class="proj-img">
+    </div>
+  </div>
+
+</section>
+
+<section id="contact">
+  <div class="sec-head sr">
+    <h2>Contact</h2>
+    <p>Open to creative producer roles, editorial collaborations, and brand partnerships globally.</p>
+  </div>
+  <div class="three-grid" style="margin-bottom:20px">
+    <div class="card sr d1">
+      <h3>Email</h3>
+      <a href="mailto:boleagasophia@gmail.com" style="color:var(--burg);font-size:.9rem">boleagasophia@gmail.com</a>
+    </div>
+    <div class="card sr d2 textme-card" title="hover to reveal number">
+      <h3>Phone</h3>
+      <div class="textme-wrap">
+        <img class="textme-closed" src="images/img_png_004.png" alt="Text me">
+        <img class="textme-open"   src="images/img_jpeg_094.jpeg"   alt="+39 347 369 4732">
+      </div>
+    </div>
+    <div class="card sr d3">
+      <h3>Based in</h3>
+      <p>Milan, Italy — open to relocate globally</p>
+    </div>
+  </div>
+  <div class="three-grid sr d2">
+    <a class="card contact-link" href="https://www.linkedin.com/in/sophieboleaga/" target="_blank" rel="noopener">
+      <div class="contact-icon">in</div><h3>LinkedIn</h3><p>Sophie Boleaga</p>
+    </a>
+    <a class="card contact-link" href="https://www.behance.net/sophia-boleaga" target="_blank" rel="noopener">
+      <div class="contact-icon">Bē</div><h3>Behance</h3><p>sophia-boleaga</p>
+    </a>
+    <a class="card contact-link" href="https://www.instagram.com/sophistique.jpg" target="_blank" rel="noopener">
+      <div class="contact-icon">ig</div><h3>Instagram</h3><p>@sophistique.jpg</p>
+    </a>
+  </div>
+  <div class="sr d3" style="margin-top:8px">
+    <div class="card" style="max-width:640px">
+      <h3 style="margin-bottom:4px">Send a message</h3>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px">For collaborations, roles, or to request my CV — I'll get back to you.</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <input id="cf-name" type="text" placeholder="Your name" style="width:100%;background:none;border:none;border-bottom:1.5px solid var(--line);font-family:var(--B);font-size:.88rem;color:var(--ink);padding:8px 0;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--burg)'" onblur="this.style.borderColor='var(--line)'">
+        <input id="cf-email" type="email" placeholder="Your email" style="width:100%;background:none;border:none;border-bottom:1.5px solid var(--line);font-family:var(--B);font-size:.88rem;color:var(--ink);padding:8px 0;outline:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--burg)'" onblur="this.style.borderColor='var(--line)'">
+        <textarea id="cf-msg" rows="4" placeholder="Your message — or simply write 'CV request' and I'll send it over." style="width:100%;background:none;border:none;border-bottom:1.5px solid var(--line);font-family:var(--B);font-size:.88rem;color:var(--ink);padding:8px 0;outline:none;resize:none;transition:border-color .2s;box-sizing:border-box" onfocus="this.style.borderColor='var(--burg)'" onblur="this.style.borderColor='var(--line)'"></textarea>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+          <span id="cf-status" style="font-family:var(--B);font-style:italic;font-size:.8rem;color:var(--burg);opacity:0;transition:opacity .3s"></span>
+          <button onclick="sendContactForm()" style="background:var(--ink);color:white;border:none;font-family:var(--BB);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:background .2s;border-radius:2px" onmouseover="this.style.background='var(--burg)'" onmouseout="this.style.background='var(--ink)'">Send ↗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  function sendContactForm(){
+    const name=document.getElementById('cf-name').value.trim();
+    const email=document.getElementById('cf-email').value.trim();
+    const msg=document.getElementById('cf-msg').value.trim();
+    const status=document.getElementById('cf-status');
+    if(!name||!email||!msg){status.textContent='Please fill in all fields.';status.style.opacity='1';return;}
+    const subject=encodeURIComponent('Portfolio enquiry — '+name);
+    const body=encodeURIComponent('From: '+name+'\nEmail: '+email+'\n\n'+msg);
+    window.location.href='mailto:boleagasophia@gmail.com?subject='+subject+'&body='+body;
+    status.textContent='Opening your email client…';status.style.opacity='1';
+    setTimeout(()=>{status.style.opacity='0';},4000);
+  }
+  </script>
+</section>
+
+<!-- ══ 03 EDITORIAL ══ -->
+
+
+<!-- ══ 04 E-COMMERCE ══ -->
+
+
+<!-- ══ 05 AI ══ -->
+
+
+<!-- ══ 08 CONTACT ══ -->
+
+
+<!-- ══ 09 ASK SOPHIA ══ -->
+
+
+<footer>
+  <span class="footer-brand">Sophia Boleaga</span>
+  <span>boleagasophia@gmail.com · Milan · 2026</span>
+</footer>
+
+<script>
+document.fonts.ready.then(()=>document.body.classList.add('ready'));
+setTimeout(()=>document.body.classList.add('ready'),900);
+
+const dot=document.querySelector('.cur-dot'),ring=document.querySelector('.cur-ring');
+document.addEventListener('mousemove',e=>{dot.style.left=ring.style.left=e.clientX+'px';dot.style.top=ring.style.top=e.clientY+'px';},{passive:true});
+document.querySelectorAll('a,button,.mi,.make,.aq,.note,.card,.tab,.chip,.chat-send,.portrait,.ec-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('on'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('on'));
+});
+
+function openFolder(){
+  document.getElementById('folder').classList.add('open');
+  setTimeout(()=>document.getElementById('cover').classList.add('gone'),680);
+}
+
+const srObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');srObs.unobserve(e.target);}});
+},{threshold:0.09});
+document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
+
+const secObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)
+      document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.getAttribute('href')==='#'+e.target.id));
+  });
+},{threshold:0.25});
+document.querySelectorAll('section[id]').forEach(s=>secObs.observe(s));
+
+function loadPhoto(e){
+  const f=e.target.files[0];if(!f)return;
+  const url=URL.createObjectURL(f);
+  document.getElementById('portrait-img').src=url;
+}
+
+function loadMI(e,imgId,phId){
+  const f=e.target.files[0];if(!f)return;
+  const url=URL.createObjectURL(f);
+  const img=document.getElementById(imgId);
+  img.src=url;img.style.display='block';
+  const ph=document.getElementById(phId);if(ph)ph.style.display='none';
+  e.stopPropagation();
+}
+
+</script>
+</body>
+</html>
